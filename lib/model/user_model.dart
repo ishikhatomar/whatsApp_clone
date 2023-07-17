@@ -5,10 +5,12 @@ class UserModel {
   final String uid;
   final String profileImageUrl;
   final bool active;
+  final int lastSeen;
   final String phoneNumber;
   final List<String> groupId;
 
-  UserModel({
+  UserModel( {
+   required this.lastSeen,
     required this.username,
     required this.uid,
     required this.profileImageUrl,
@@ -22,6 +24,7 @@ class UserModel {
         "uid": uid,
         "profileImageUrl": profileImageUrl,
         "active": active,
+        "lastSeen": lastSeen,
         "phoneNumber": phoneNumber,
         "groupId": groupId
       };
@@ -31,6 +34,7 @@ class UserModel {
     return UserModel(
         username: data['username'] ?? "",
         uid: data['uid'] ?? "",
+        lastSeen: data['lastSeen'] ?? 0,
         profileImageUrl: data['profileImageUrl'] ?? "",
         active: data['active'] ?? false,
         phoneNumber: data['phoneNumber'] ?? "",

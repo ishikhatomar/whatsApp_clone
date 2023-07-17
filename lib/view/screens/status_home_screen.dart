@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:whatsapp_clone/app_resources/app_colors.dart';
 
 class StatusHomeScreen extends StatelessWidget {

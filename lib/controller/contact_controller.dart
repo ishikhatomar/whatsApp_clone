@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_clone/model/user_model.dart';
 
 class ContactController extends GetxController {
@@ -13,6 +14,7 @@ class ContactController extends GetxController {
   void onInit() {
     getAllContacts().then((value) {
       _contact.value = value;
+      // ignore: invalid_use_of_protected_member
       log("${_contact.value}");
     });
     super.onInit();
@@ -54,6 +56,7 @@ class ContactController extends GetxController {
                   uid: "",
                   profileImageUrl: "",
                   active: false,
+                  lastSeen: 0 ,
                   phoneNumber: contact.phones[0].number.replaceAll("", ""),
                   groupId: []),
             );
@@ -67,4 +70,13 @@ class ContactController extends GetxController {
 
     return [firebaseContacts, phoneContacts];
   }
+
+  shareSmsLink(phoneNumber)async {
+    Uri sms = Uri.parse("sms: ${phoneNumber})? body = Let's chat on WhatsApp! It's a fast. simple, and secure app we can call each other for free. Get it at https://whatsapp.com/dl/");
+    if(await launchUrl(sms)){
+
+    }else{
+ }
+                              
+ }
 }

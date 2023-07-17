@@ -9,7 +9,6 @@ import 'package:whatsapp_clone/app_resources/app_strings.dart';
 import 'package:whatsapp_clone/app_resources/app_style.dart';
 import 'package:whatsapp_clone/controller/profile_controller.dart';
 import 'package:whatsapp_clone/view/auth/widget/custom_text_field.dart';
-import 'package:whatsapp_clone/view/home_screen.dart';
 
 class UserInfoScreen extends StatelessWidget {
   UserInfoScreen({super.key});  

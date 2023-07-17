@@ -40,40 +40,112 @@ class ContactPageScreen extends StatelessWidget {
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
           ],
-        ), //tum apna krdo expanded me kyu wrap kiyaadono kyunnnlistview ka useok/hnn
+        ), 
         body: Obx(
           () => contactController.contact.isEmpty
               ? SizedBox()
               : ListView(
                   children: [
-                    Text("Contacs on Whatsapp"),
-                    Expanded(
-                      child: ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: contactController.contact[0].length,
-                        itemBuilder: (context, index) {
-                          return Text(
-                            contactController.contact[0][index].username,
-                          );
-                        },
+                    
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppDimension.px20,
+                        vertical: AppDimension.px20,
+                      ),
+                      child: Text(
+                        "Contacs on Whatsapp",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: AppColor.grey,
+                        ),
                       ),
                     ),
-                    Text("Contacs"),
-                    Expanded(
-                      child: ListView.builder(
-                         physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: contactController.contact[1].length,
-                        itemBuilder: (context, index) {
-                          return Text(
-                            contactController.contact[1][index].username,
-                          );
-                        },
+                    ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: contactController.contact[0].length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          contentPadding: EdgeInsets.only(
+                            left: AppDimension.px20,
+                            right: AppDimension.px10,
+                          ),
+                          dense: true,
+                          leading: CircleAvatar(
+                            backgroundColor: AppColor.grey.withOpacity(0.3),
+                            radius: AppDimension.px20,
+                     
+                     
+                            child:contactController.contact[0]. profilephoto.isEmpty
+                                ? Icon(
+                                    Icons.person,
+                                    size: 30,
+                                    color: AppColor.black,
+                                  )
+                                : null,
+                          ),
+                          title: Text(
+                            contactController.contact[0][index].username,
+                            style: TextStyle(
+                              fontSize: AppDimension.px16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          subtitle: Text(
+                            "Hey there! I'm using WhatsApp",
+                            style: TextStyle(
+                              color: AppColor.grey,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    Text(
+                      "Contacs",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.grey,
                       ),
+                    ),
+                    ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: contactController.contact[1].length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          onTap: () =>contactController.shareSmsLink(contactController.contact[0].phoneNumber),
+                           contentPadding: EdgeInsets.only(
+                            left: AppDimension.px20,
+                            right: AppDimension.px10,
+                          ),
+                          dense: true,
+                          leading: CircleAvatar(
+                            backgroundColor: AppColor.grey.withOpacity(0.3),
+                            radius: AppDimension.px20,
+                            child: Icon(Icons.person, size: AppDimension.px30, color: AppColor.blue,),
+
+                          ),
+                          title: Text(
+                            contactController.contact[1][index].username,
+                            style: TextStyle(
+                              fontSize: AppDimension.px16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                         
+                          trailing: TextButton(onPressed: (){},
+                          style:TextButton.styleFrom(
+                            foregroundColor: AppColor.greenarrow,
+                          ) ,
+                           child: Text("INVITE"),
+                           ),
+                        );
+                      },
                     ),
                   ],
                 ),
         ));
-  }
+  }//mummy aayi hain 
+
 }
