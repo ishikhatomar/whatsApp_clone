@@ -14,7 +14,7 @@ class ContactController extends GetxController {
   void onInit() {
     getAllContacts().then((value) {
       _contact.value = value;
-      // ignore: invalid_use_of_protected_member
+      
       log("${_contact.value}");
     });
     super.onInit();

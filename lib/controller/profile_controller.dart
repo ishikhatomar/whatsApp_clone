@@ -13,7 +13,7 @@ import 'package:whatsapp_clone/view/home_screen.dart';
 
 class ProfileController extends GetxController {
   Rx<TextEditingController> usernameController = TextEditingController().obs;
-  //UserController _userController = Get.put(UserController());
+  
 
   Rx<String> _pickedImage = "".obs;
   

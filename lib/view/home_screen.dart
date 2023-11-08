@@ -13,10 +13,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return 
+    DefaultTabController(
 
       length: 3,
-      child: Scaffold(
+      child: 
+      Scaffold(
         appBar: AppBar(
           backgroundColor: AppColor.whatsAppbarColor,
           title: const Text(AppString.whatsApp, style: TextStyle(letterSpacing: AppDimension.px1),),

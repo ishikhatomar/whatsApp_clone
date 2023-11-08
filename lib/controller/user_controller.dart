@@ -3,7 +3,7 @@ import 'package:whatsapp_clone/model/user_model.dart';
 
 class UserController extends GetxController {
   Rx<UserModel> _user =  UserModel.fromSnap({}).obs;
- //create getter
+ 
  UserModel get  user => _user.value;
 
  set setUserData(value){
